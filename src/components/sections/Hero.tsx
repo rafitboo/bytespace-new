@@ -18,70 +18,86 @@ export default function Hero() {
         }}
       />
 
+      {/* SVG Color Tint Filter for Electric Neon Lime #D3F832 */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+        <filter id="lime-tint" colorInterpolationFilters="sRGB">
+          {/* First convert luminance to high-key white, then tint with #D3F832 */}
+          <feColorMatrix
+            type="matrix"
+            values="
+              1.35 0 0 0 0.12
+              0 1.55 0 0 0.15
+              0 0 0.35 0 0.02
+              0 0 0 1 0
+            "
+          />
+        </filter>
+      </svg>
+
       {/* 2. Floating 3D Ornaments */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-[1440px] mx-auto">
-        {/* Top-Left Green Zigzag */}
-        <div className="absolute left-2 lg:left-8 top-28 w-24 sm:w-36 lg:w-44 select-none">
+        {/* Top-Left Zigzag - LIME #D3F832 */}
+        <div className="absolute left-1 lg:left-6 top-20 w-32 sm:w-44 lg:w-56 select-none">
           <img
             src="/assets/ornaments/spiral 2.png"
             alt="Decoration"
             className="w-full object-contain"
             style={{
-              filter: "brightness(0.95) sepia(1) hue-rotate(68deg) saturate(12) contrast(1.1)",
+              filter: "url(#lime-tint) drop-shadow(0 4px 12px rgba(0,0,0,0.15))",
             }}
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
 
-        {/* Mid-Left White Squiggle */}
-        <div className="absolute left-16 lg:left-28 top-[46%] w-12 sm:w-16 lg:w-20 select-none">
+        {/* Mid-Left Squiggle - 3D WHITE */}
+        <div className="absolute left-14 lg:left-24 top-[44%] w-16 sm:w-22 lg:w-28 select-none">
           <img
             src="/assets/ornaments/spiral.png"
             alt="Decoration"
-            className="w-full object-contain brightness-150 contrast-125 drop-shadow-md"
+            className="w-full object-contain brightness-125 contrast-110 drop-shadow-lg"
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
 
-        {/* Bottom-Left White Torus / Donut */}
-        <div className="absolute left-4 lg:left-14 bottom-14 w-28 sm:w-40 lg:w-48 select-none">
+        {/* Bottom-Left Torus / Donut - 3D WHITE */}
+        <div className="absolute left-2 lg:left-10 bottom-10 w-36 sm:w-52 lg:w-64 select-none">
           <img
             src="/assets/ornaments/donut.png"
             alt="Decoration"
-            className="w-full object-contain brightness-150 contrast-125 drop-shadow-md"
+            className="w-full object-contain brightness-125 contrast-110 drop-shadow-xl"
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
 
-        {/* Top-Right Green Cylinder */}
-        <div className="absolute right-4 lg:right-10 top-24 w-28 sm:w-36 lg:w-44 select-none">
+        {/* Top-Right Cylinder - LIME #D3F832 */}
+        <div className="absolute right-2 lg:right-6 top-16 w-36 sm:w-48 lg:w-60 select-none">
           <img
             src="/assets/ornaments/cylinder.png"
             alt="Decoration"
             className="w-full object-contain"
             style={{
-              filter: "brightness(0.95) sepia(1) hue-rotate(68deg) saturate(12) contrast(1.1)",
+              filter: "url(#lime-tint) drop-shadow(0 4px 12px rgba(0,0,0,0.15))",
             }}
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
 
-        {/* Mid-Right White Cone */}
-        <div className="absolute right-20 lg:right-32 top-[44%] w-16 sm:w-24 select-none">
+        {/* Mid-Right Cone - 3D WHITE */}
+        <div className="absolute right-16 lg:right-28 top-[42%] w-20 sm:w-30 lg:w-36 select-none">
           <img
             src="/assets/ornaments/cone.png"
             alt="Decoration"
-            className="w-full object-contain brightness-150 contrast-125 drop-shadow-md"
+            className="w-full object-contain brightness-125 contrast-110 drop-shadow-xl"
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
 
-        {/* Bottom-Right White Squiggle */}
-        <div className="absolute right-6 lg:right-16 bottom-16 w-16 sm:w-24 select-none">
+        {/* Bottom-Right Squiggle - 3D WHITE */}
+        <div className="absolute right-4 lg:right-12 bottom-12 w-20 sm:w-32 lg:w-36 select-none">
           <img
             src="/assets/ornaments/spiral 3.png"
             alt="Decoration"
-            className="w-full object-contain brightness-150 contrast-125 drop-shadow-md"
+            className="w-full object-contain brightness-125 contrast-110 drop-shadow-xl"
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </div>
