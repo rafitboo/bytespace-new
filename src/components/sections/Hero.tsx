@@ -118,8 +118,8 @@ export default function Hero() {
 
           <div className="hidden md:flex items-center gap-8 text-sm text-white/90 font-medium">
             <Link href="/" className="hover:text-white transition">Home</Link>
-            <Link href="#courses" className="hover:text-white transition">Courses</Link>
-            <Link href="#creators" className="hover:text-white transition">Creators</Link>
+            <Link href="/courses" className="hover:text-white transition">Courses</Link>
+            <Link href="/creators" className="hover:text-white transition">Creators</Link>
           </div>
 
           <div className="flex items-center gap-4 text-sm font-medium">
