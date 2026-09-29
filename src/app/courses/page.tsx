@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 import {
   Search,
   ChevronDown,
@@ -44,6 +45,7 @@ const baseCourses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course2.jpg",
+    href: "/courses/overview",
   },
   {
     title: "the Power of Big Data",
@@ -109,51 +111,7 @@ export default function CoursesPage() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Top Navigation */}
-            <header className="flex items-center justify-between py-2">
-              <Link href="/" className="flex items-center gap-2">
-                <img
-                  src="/assets/logo.png"
-                  alt="ByteSpace"
-                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
-                />
-                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white">
-                  ByteSpace
-                </span>
-              </Link>
-
-              {/* Navigation Links */}
-              <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/90">
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-                <Link
-                  href="/courses"
-                  className="text-white font-semibold underline underline-offset-8"
-                >
-                  Courses
-                </Link>
-                <Link href="#creators" className="hover:text-white transition-colors">
-                  Creators
-                </Link>
-              </nav>
-
-              {/* Right User Actions */}
-              <div className="flex items-center gap-5 text-sm font-medium text-white">
-                <Link href="/login" className="hover:text-white/80 transition-colors">
-                  Sign In
-                </Link>
-                <Link href="/signup" className="hover:text-white/80 transition-colors">
-                  Join Us
-                </Link>
-                <button
-                  type="button"
-                  aria-label="Shopping Cart"
-                  className="p-1 hover:text-white/80 transition"
-                >
-                  <ShoppingBag className="w-5 h-5 stroke-[2]" />
-                </button>
-              </div>
-            </header>
+            <Navbar />
 
             {/* Hero Title & Search Bar */}
             <div className="mt-14 sm:mt-16 text-center max-w-3xl mx-auto">
@@ -229,62 +187,74 @@ export default function CoursesPage() {
 
           {/* ================= 12-CARD COURSE GRID (4 ROWS x 3 COLS) ================= */}
           <div className="mt-10 mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 text-left">
-            {allCourses.map((course) => (
-              <div
-                key={course.id}
-                className="bg-white rounded-[26px] p-3 border border-gray-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Course Image */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-102 transition duration-300"
-                    onError={(e) => {
-                      e.currentTarget.src = "/assets/courses/course-1.png";
-                    }}
-                  />
-                </div>
-
-                {/* Course Details */}
-                <div className="px-1.5 pt-4 pb-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-bold text-gray-900 text-lg tracking-tight group-hover:text-[#1A56EE] transition truncate">
-                      {course.title}
-                    </h3>
-                    <div className="flex items-center text-sm font-semibold text-gray-500 shrink-0">
-                      {course.rating}
-                      <Star className="w-4 h-4 fill-gray-300 text-gray-300 ml-1" />
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-[#1A56EE] mt-0.5 font-medium">
-                    by <span className="hover:underline cursor-pointer">{course.author}</span>
-                  </p>
-
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="inline-flex items-center gap-1.5 bg-[#F5F5F7] text-gray-700 text-xs font-medium px-3.5 py-1.5 rounded-full">
-                      <Signal className="w-3.5 h-3.5 text-gray-600" />
-                      {course.level}
-                    </span>
-
-                    {/* Exact Avatar Stack Asset */}
+            {allCourses.map((course) => {
+              const cardContent = (
+                <>
+                  {/* Course Image */}
+                  <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100">
                     <img
-                      src="/assets/course-avatars.png"
-                      alt="Enrolled students"
-                      className="h-6 w-auto object-contain select-none"
+                      src={course.image}
+                      alt={course.title}
+                      className="w-full h-full object-cover group-hover:scale-102 transition duration-300"
+                      onError={(e) => {
+                        e.currentTarget.src = "/assets/courses/course1.jpg";
+                      }}
                     />
                   </div>
 
-                  <div className="mt-4 pt-3 flex items-baseline">
-                    <span className="text-[#1A56EE] font-black text-xl tracking-tight">
-                      {course.price}
-                    </span>
-                    <span className="text-gray-400 text-xs font-normal ml-1">/lifetime</span>
+                  {/* Course Details */}
+                  <div className="px-1.5 pt-4 pb-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="font-bold text-gray-900 text-lg tracking-tight group-hover:text-[#1A56EE] transition truncate">
+                        {course.title}
+                      </h3>
+                      <div className="flex items-center text-sm font-semibold text-gray-500 shrink-0">
+                        {course.rating}
+                        <Star className="w-4 h-4 fill-gray-300 text-gray-300 ml-1" />
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-[#1A56EE] mt-0.5 font-medium">
+                      by <span className="hover:underline">{course.author}</span>
+                    </p>
+
+                    <div className="flex items-center justify-between mt-4">
+                      <span className="inline-flex items-center gap-1.5 bg-[#F5F5F7] text-gray-700 text-xs font-medium px-3.5 py-1.5 rounded-full">
+                        <Signal className="w-3.5 h-3.5 text-gray-600" />
+                        {course.level}
+                      </span>
+
+                      {/* Exact Avatar Stack Asset */}
+                      <img
+                        src="/assets/course-avatars.png"
+                        alt="Enrolled students"
+                        className="h-6 w-auto object-contain select-none"
+                      />
+                    </div>
+
+                    <div className="mt-4 pt-3 flex items-baseline">
+                      <span className="text-[#1A56EE] font-black text-xl tracking-tight">
+                        {course.price}
+                      </span>
+                      <span className="text-gray-400 text-xs font-normal ml-1">/lifetime</span>
+                    </div>
                   </div>
+                </>
+              );
+
+              const cardClasses =
+                "bg-white rounded-[26px] p-3 border border-gray-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group block cursor-pointer";
+
+              return course.href ? (
+                <Link key={course.id} href={course.href} className={cardClasses}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={course.id} className={cardClasses}>
+                  {cardContent}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* ================= PAGINATION CONTROLS ================= */}
