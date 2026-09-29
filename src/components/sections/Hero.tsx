@@ -107,10 +107,12 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Bar */}
         <nav className="flex items-center justify-between pb-8">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-white">
-            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#D3F832] text-[#1A56EE] font-black text-sm">
-              b
-            </span>
+          <Link href="/" className="flex items-center gap-2.5 font-bold text-xl tracking-tight text-white group">
+            <img
+              src="/assets/logo.png"
+              alt="ByteSpace"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
+            />
             <span className="font-semibold text-lg text-white">ByteSpace</span>
           </Link>
 
