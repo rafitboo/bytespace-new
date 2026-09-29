@@ -68,7 +68,7 @@ export default function ShowcaseSections() {
 
           {/* Right: Visual Showcase Composite */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-[340px] sm:w-[480px] h-[400px] sm:h-[480px] flex items-center justify-center">
+            <div className="relative w-[360px] sm:w-[520px] h-[440px] sm:h-[530px] flex items-center justify-center">
               
               {/* 1. Green Spiral Ornament (Far Right, z-0 Behind Everything) */}
               <img
@@ -118,7 +118,7 @@ export default function ShowcaseSections() {
               <img
                 src="/assets/lp-img-1.png"
                 alt="Student"
-                className="w-[300px] sm:w-[410px] object-contain absolute bottom-0 right-2 sm:right-6 z-20 drop-shadow-2xl pointer-events-none"
+                className="w-[340px] sm:w-[470px] lg:w-[490px] object-contain absolute bottom-0 right-0 sm:right-4 z-20 drop-shadow-2xl pointer-events-none"
               />
 
             </div>
@@ -133,7 +133,7 @@ export default function ShowcaseSections() {
           
           {/* Left: Creator Visual Composite */}
           <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative w-[340px] sm:w-[480px] h-[400px] sm:h-[480px] flex items-center justify-center">
+            <div className="relative w-[360px] sm:w-[520px] h-[440px] sm:h-[530px] flex items-center justify-center">
               
               {/* 1. Green Spiral Ornament (Behind Creator, z-0) */}
               <img
@@ -170,7 +170,7 @@ export default function ShowcaseSections() {
               <img
                 src="/assets/showcase-creator.png"
                 alt="Creator with Tablet"
-                className="w-[290px] sm:w-[380px] object-contain absolute bottom-0 left-16 sm:left-24 z-20 drop-shadow-2xl"
+                className="w-[330px] sm:w-[440px] object-contain absolute bottom-0 left-12 sm:left-20 z-20 drop-shadow-2xl"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80";
                 }}
