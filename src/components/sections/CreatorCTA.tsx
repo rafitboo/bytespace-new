@@ -5,6 +5,21 @@ import Link from "next/link";
 export default function CreatorCTA() {
   return (
     <section className="relative bg-[#1A56EE] text-white overflow-hidden py-24 sm:py-32 my-12">
+      {/* SVG Lime Tint Filter Definition */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+        <filter id="lime-tint" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="
+              0.827 0     0     0 0
+              0     0.972 0     0 0
+              0     0     0.196 0 0
+              0     0     0     1 0
+            "
+          />
+        </filter>
+      </svg>
+
       {/* 1. Blueprint Grid Overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80"
@@ -33,7 +48,7 @@ export default function CreatorCTA() {
         </div>
 
         {/* Top-Left WHITE Squiggle */}
-        <div className="absolute left-14 sm:left-40 top-6 sm:top-8 w-16 sm:w-24 lg:w-48 select-none">
+        <div className="absolute left-14 sm:left-40 top-6 sm:top-8 w-16 sm:w-24 lg:w-44 select-none">
           <img
             src="/assets/ornaments/spiral.png"
             alt="Decoration"
@@ -53,7 +68,7 @@ export default function CreatorCTA() {
         </div>
 
         {/* Bottom-Left GREEN Torus */}
-        <div className="absolute left-8 sm:left-30 -bottom-26 sm:-bottom-24 w-36 sm:w-52 lg:w-64 select-none">
+        <div className="absolute left-8 sm:left-[120px] -bottom-24 sm:-bottom-24 w-36 sm:w-52 lg:w-64 select-none">
           <img
             src="/assets/ornaments/donut.png"
             alt="Decoration"
@@ -66,7 +81,7 @@ export default function CreatorCTA() {
         </div>
 
         {/* Top-Right GREEN Cone */}
-        <div className="absolute right-10 sm:right-34 top-2 sm:top-6 w-24 sm:w-36 lg:w-44 select-none">
+        <div className="absolute right-10 sm:right-32 top-2 sm:top-6 w-24 sm:w-36 lg:w-44 select-none">
           <img
             src="/assets/ornaments/cone.png"
             alt="Decoration"
@@ -91,7 +106,7 @@ export default function CreatorCTA() {
         {/* Bottom-Right GREEN Zigzag */}
         <div className="absolute right-0 sm:right-4 -bottom-6 sm:-bottom-4 w-28 sm:w-44 lg:w-52 select-none">
           <img
-            src="/assets/ornaments/spiral.png"
+            src="/assets/ornaments/spiral 2.png"
             alt="Decoration"
             className="w-full object-contain"
             style={{

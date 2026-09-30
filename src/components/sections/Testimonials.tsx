@@ -24,30 +24,22 @@ const testimonials = [
   },
 ];
 
-export default function CommunityTestimonials() {
+export function CommunityTestimonials() {
   return (
     <section className="relative py-24 sm:py-32 bg-white overflow-hidden">
-      
       {/* ================= ATMOSPHERIC GRADIENTS (CENTERED) ================= */}
-      {/* 1. Center-Left Soft Blue Ambient Glow */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[650px] h-[550px] bg-[#1A56EE]/12 rounded-full blur-[140px] pointer-events-none" />
-
-      {/* 2. Center-Right Soft Lime/Yellow Ambient Glow */}
       <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[650px] h-[550px] bg-[#D3F832]/20 rounded-full blur-[140px] pointer-events-none" />
-
-      {/* 3. Central Ambient Core Blend */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-[#1A56EE]/8 to-[#D3F832]/12 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= SECTION HEADER ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start justify-between pb-16">
-          {/* Headline */}
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-gray-900 tracking-tight leading-[1.15]">
             Discover What Our <br />
             Community Is Saying
           </h2>
 
-          {/* Subtext Paragraph */}
           <p className="text-gray-500 text-xs sm:text-sm leading-relaxed font-normal max-w-xl lg:ml-auto">
             At ByteSpace, our vibrant community of learners and creators is at the
             heart of what we do. Hear directly from those who have experienced
@@ -71,6 +63,9 @@ export default function CommunityTestimonials() {
                     src={item.avatar}
                     alt={item.name}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = `/assets/person${idx + 1}.png`;
+                    }}
                   />
                 </div>
 
@@ -94,3 +89,5 @@ export default function CommunityTestimonials() {
     </section>
   );
 }
+
+export default CommunityTestimonials;

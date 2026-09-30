@@ -259,9 +259,11 @@ export default function LoginPage() {
                 aria-label="Log in with Facebook"
                 className="w-14 h-14 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
               >
-                <svg className="w-6 h-6 text-gray-900 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
+                <img
+                  src="/assets/facebook.png"
+                  alt="Facebook"
+                  className="w-6 h-6 object-contain"
+                />
               </button>
 
               {/* Google */}
@@ -270,9 +272,11 @@ export default function LoginPage() {
                 aria-label="Log in with Google"
                 className="w-14 h-14 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
               >
-                <svg className="w-6 h-6 text-gray-900 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.24 10.285V7.4h6.54c.24 1.05.36 2.19.36 3.42 0 4.29-2.88 7.35-7.08 7.35-4.08 0-7.38-3.3-7.38-7.38s3.3-7.38 7.38-7.38c1.98 0 3.75.75 5.1 1.98l-2.16 2.13c-.78-.72-1.8-1.17-2.94-1.17-2.52 0-4.56 2.04-4.56 4.56s2.04 4.56 4.56 4.56c2.31 0 3.9-1.38 4.23-3.27h-4.23z" />
-                </svg>
+                <img
+                  src="/assets/google.png"
+                  alt="Google"
+                  className="w-6 h-6 object-contain"
+                />
               </button>
             </div>
 

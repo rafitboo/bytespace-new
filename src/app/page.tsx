@@ -5,7 +5,7 @@ import LearningPaths from "@/components/sections/LearningPaths";
 import ShowcaseSections from "@/components/sections/ShowcaseSections";
 import CreatorCTA from "@/components/sections/CreatorCTA";
 import Testimonials from "@/components/sections/Testimonials";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

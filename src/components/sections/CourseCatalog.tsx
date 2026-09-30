@@ -20,9 +20,11 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course1.jpg",
+    altImage: "/assets/courses/course-1.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
+    href: "/courses/overview",
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course2.jpg",
+    altImage: "/assets/courses/course-2.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
@@ -45,9 +48,11 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course3.jpg",
+    altImage: "/assets/courses/course-3.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
+    href: "/courses/overview",
   },
   {
     id: 4,
@@ -57,9 +62,11 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course4.jpg",
+    altImage: "/assets/courses/course-4.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
+    href: "/courses/overview",
   },
   {
     id: 5,
@@ -69,9 +76,11 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course5.jpg",
+    altImage: "/assets/courses/course-5.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
+    href: "/courses/overview",
   },
   {
     id: 6,
@@ -81,9 +90,11 @@ const courses = [
     price: "$25",
     level: "Beginner",
     image: "/assets/courses/course6.jpg",
+    altImage: "/assets/courses/course-6.png",
     lessons: "17 Lessons",
     duration: "2 hours 16 mins",
     comments: "59 Comments",
+    href: "/courses/overview",
   },
 ];
 
@@ -120,97 +131,76 @@ export default function CourseCatalog() {
 
         {/* Course Cards Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 text-left">
-          {courses.map((course) => {
-            const cardContent = (
-              <>
-                {/* Course Image + Frosted Badges */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-102 transition duration-300"
-                  />
-                  {/* Frosted Badge Bar (Evenly aligned across every card) */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
-                    <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
-                      {course.lessons}
-                    </span>
-                    <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
-                      {course.duration}
-                    </span>
-                    <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
-                      {course.comments}
-                    </span>
-                  </div>
+          {courses.map((course) => (
+            <Link
+              key={course.id}
+              href={course.href}
+              className="bg-white rounded-[26px] p-3 border border-gray-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group block cursor-pointer"
+            >
+              {/* Course Image + Frosted Badges */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition duration-300"
+                  onError={(e) => {
+                    e.currentTarget.src = course.altImage;
+                  }}
+                />
+                {/* Frosted Badge Bar */}
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
+                  <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
+                    {course.lessons}
+                  </span>
+                  <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
+                    {course.duration}
+                  </span>
+                  <span className="bg-white/70 backdrop-blur-md text-gray-800 text-[11px] font-medium px-2.5 py-1 rounded-full shadow-sm">
+                    {course.comments}
+                  </span>
                 </div>
-
-                {/* Course Meta & Details */}
-                <div className="px-1.5 pt-4 pb-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-bold text-gray-900 text-lg tracking-tight group-hover:text-[#1A56EE] transition truncate">
-                      {course.title}
-                    </h3>
-                    <div className="flex items-center text-sm font-semibold text-gray-500 shrink-0">
-                      {course.rating}
-                      <Star className="w-4 h-4 fill-gray-300 text-gray-300 ml-1" />
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-[#1A56EE] mt-0.5 font-medium">
-                    by <span className="hover:underline">{course.author}</span>
-                  </p>
-
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="inline-flex items-center gap-1.5 bg-[#F5F5F7] text-gray-700 text-xs font-medium px-3.5 py-1.5 rounded-full">
-                      <Signal className="w-3.5 h-3.5 text-gray-600" />
-                      {course.level}
-                    </span>
-
-                    <div className="flex items-center -space-x-1.5">
-                      <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50&h=50&fit=crop"
-                        alt="Student"
-                        className="w-6 h-6 rounded-full border border-white object-cover"
-                      />
-                      <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop"
-                        alt="Student"
-                        className="w-6 h-6 rounded-full border border-white object-cover"
-                      />
-                      <img
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop"
-                        alt="Student"
-                        className="w-6 h-6 rounded-full border border-white object-cover"
-                      />
-                      <span className="w-6 h-6 rounded-full bg-[#D3F832] text-[9px] font-black text-gray-900 flex items-center justify-center border border-white">
-                        26+
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 pt-3 flex items-baseline">
-                    <span className="text-[#1A56EE] font-black text-xl tracking-tight">
-                      {course.price}
-                    </span>
-                    <span className="text-gray-400 text-xs font-normal ml-1">/lifetime</span>
-                  </div>
-                </div>
-              </>
-            );
-
-            const cardClasses =
-              "bg-white rounded-[26px] p-3 border border-gray-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group block cursor-pointer";
-
-            return course.href ? (
-              <Link key={course.id} href={course.href} className={cardClasses}>
-                {cardContent}
-              </Link>
-            ) : (
-              <div key={course.id} className={cardClasses}>
-                {cardContent}
               </div>
-            );
-          })}
+
+              {/* Course Meta & Details */}
+              <div className="px-1.5 pt-4 pb-2">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-bold text-gray-900 text-lg tracking-tight group-hover:text-[#1A56EE] transition truncate">
+                    {course.title}
+                  </h3>
+                  <div className="flex items-center text-sm font-semibold text-gray-500 shrink-0">
+                    {course.rating}
+                    <Star className="w-4 h-4 fill-gray-300 text-gray-300 ml-1" />
+                  </div>
+                </div>
+
+                <p className="text-xs text-[#1A56EE] mt-0.5 font-medium">
+                  by <span className="hover:underline">{course.author}</span>
+                </p>
+
+                <div className="flex items-center justify-between mt-4">
+                  <span className="inline-flex items-center gap-1.5 bg-[#F5F5F7] text-gray-700 text-xs font-medium px-3.5 py-1.5 rounded-full">
+                    <Signal className="w-3.5 h-3.5 text-gray-600" />
+                    {course.level}
+                  </span>
+
+                  <div className="flex items-center -space-x-1.5">
+                    <img
+                        src="/assets/course-avatars.png"
+                        alt="Enrolled students"
+                        className="h-6 w-auto object-contain select-none"
+                      />
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 flex items-baseline">
+                  <span className="text-[#1A56EE] font-black text-xl tracking-tight">
+                    {course.price}
+                  </span>
+                  <span className="text-gray-400 text-xs font-normal ml-1">/lifetime</span>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

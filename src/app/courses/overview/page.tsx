@@ -16,7 +16,7 @@ import {
   Award,
   Headphones,
 } from "lucide-react";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/layout/Footer";
 
 export default function CourseOverviewPage() {
   const [activeTab, setActiveTab] = useState<"about" | "lessons" | "reviews">("about");
@@ -105,7 +105,7 @@ export default function CourseOverviewPage() {
     <div className="min-h-screen bg-white flex flex-col justify-between">
       <div>
         {/* ================= HERO SECTION WITH BLUEPRINT GRID ================= */}
-        <div className="relative bg-[#1A56EE] text-white pt-6 pb-28 sm:pb-36 overflow-hidden">
+        <div className="relative bg-[#1A56EE] text-white pt-6 pb-14 sm:pb-16 overflow-hidden">
           {/* Blueprint Grid Overlay */}
           <div
             className="absolute inset-0 pointer-events-none opacity-80"
@@ -161,36 +161,41 @@ export default function CourseOverviewPage() {
                 Share
               </button>
             </div>
+
+            {/* Video Playback Card directly inside the Blue Hero Section */}
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-8">
+                <div className="relative rounded-[32px] overflow-hidden aspect-[16/10] bg-gray-200 shadow-2xl border-4 border-white">
+                  <img
+                    src="/assets/overview/thumbnail.jpg"
+                    alt="Course Preview"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
+                    <button
+                      type="button"
+                      aria-label="Play Video"
+                      className="w-16 sm:w-20 h-16 sm:h-20 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center hover:scale-105 transition shadow-2xl group"
+                    >
+                      <Play className="w-7 sm:w-9 h-7 sm:h-9 fill-white text-white translate-x-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* ================= MAIN CONTENT & SIDEBAR ================= */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-24 pb-20 relative z-20">
+        {/* Pull up so the right sidebar card's top edge matches the video playback card's top edge perfectly */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:-mt-[527px] xl:-mt-[564px] pb-20 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* ================= LEFT COLUMN: Video & Tabs ================= */}
-            <div className="lg:col-span-8 space-y-10">
-              {/* Course Preview Video Card */}
-              <div className="relative rounded-[32px] overflow-hidden aspect-[16/10] bg-gray-200 shadow-2xl border-4 border-white">
-                <img
-                  src="/assets/overview/thumbnail.jpg"
-                  alt="Course Preview"
-                  className="w-full h-full object-cover"
-                />
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
-                  <button
-                    type="button"
-                    aria-label="Play Video"
-                    className="w-16 sm:w-20 h-16 sm:h-20 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 flex items-center justify-center hover:scale-105 transition shadow-2xl group"
-                  >
-                    <Play className="w-7 sm:w-9 h-7 sm:h-9 fill-white text-white translate-x-0.5" />
-                  </button>
-                </div>
-              </div>
-
+            {/* ================= LEFT COLUMN: Spacer + Tabs ================= */}
+            <div className="lg:col-span-8 space-y-8 lg:pt-[527px] xl:pt-[564px]">
               {/* Tab Switcher Pills */}
-              <div className="flex items-center gap-2.5 pt-2">
+              <div className="flex items-center gap-2.5 pt-4">
                 <button
                   onClick={() => setActiveTab("about")}
                   className={`px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition ${
@@ -339,6 +344,30 @@ export default function CourseOverviewPage() {
                     <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
                       Engage with each lesson through captivating video content, detailed textual explanations, and interactive elements. Download resources, complete assignments, and test your understanding with quizzes.
                     </p>
+                  </div>
+
+                  {/* Lesson Progress Tracking */}
+                  <div className="space-y-4 pt-4">
+                    <div className="space-y-2">
+                      <h3 className="text-base font-bold text-gray-900">
+                        Lesson Progress Tracking
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal">
+                        Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you through your learning journey.
+                      </p>
+                    </div>
+
+                    {/* Progress Card */}
+                    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                      <p className="text-xs text-gray-500 font-medium">Learning Progress</p>
+                      <p className="text-3xl font-extrabold text-gray-900 mt-1">55%</p>
+                      <div className="w-full bg-gray-100 h-2.5 rounded-full mt-3 overflow-hidden">
+                        <div
+                          className="bg-[#D3F832] h-full rounded-full transition-all duration-500"
+                          style={{ width: "55%" }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
@@ -548,12 +577,12 @@ export default function CourseOverviewPage() {
                     Ready to Dive In? Enroll Now and Start Building Your Digital Future!
                   </p>
 
-                  <button
-                    type="button"
-                    className="w-full border border-gray-200 text-gray-800 font-semibold text-xs py-2.5 rounded-full hover:bg-gray-50 transition"
+                  <Link
+                    href="/creators"
+                    className="block text-center w-full border border-gray-200 text-gray-800 font-semibold text-xs py-2.5 rounded-full hover:bg-gray-50 transition"
                   >
                     See Full Profile
-                  </button>
+                  </Link>
                 </div>
 
               </div>

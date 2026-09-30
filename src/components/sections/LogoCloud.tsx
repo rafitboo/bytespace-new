@@ -1,3 +1,5 @@
+"use client";
+
 export default function LogoCloud() {
   const partnerLogos = [
     { src: "/assets/logo/footlogo-1.png", alt: "Logoipsum 1" },
@@ -16,6 +18,9 @@ export default function LogoCloud() {
               src={logo.src}
               alt={logo.alt}
               className="h-6 sm:h-7 w-auto object-contain hover:opacity-100 transition duration-200"
+              onError={(e) => {
+                e.currentTarget.src = `/assets/footlogo-${idx + 1}.png`;
+              }}
             />
           </div>
         ))}

@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { Search, ShoppingBag, Star } from "lucide-react";
+import { Search, Star } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
 
 export default function Hero() {
   return (
     <header className="relative bg-[#1A56EE] text-white overflow-hidden pt-6 pb-0">
       {/* 1. Blueprint Grid Overlay */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-80"
         style={{
           backgroundImage: `
@@ -21,14 +21,13 @@ export default function Hero() {
       {/* SVG Color Tint Filter for Electric Neon Lime #D3F832 */}
       <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
         <filter id="lime-tint" colorInterpolationFilters="sRGB">
-          {/* First convert luminance to high-key white, then tint with #D3F832 */}
           <feColorMatrix
             type="matrix"
             values="
-              1.35 0 0 0 0.12
-              0 1.55 0 0 0.15
-              0 0 0.35 0 0.02
-              0 0 0 1 0
+              0.827 0     0     0 0
+              0     0.972 0     0 0
+              0     0     0.196 0 0
+              0     0     0     1 0
             "
           />
         </filter>
@@ -105,41 +104,11 @@ export default function Hero() {
 
       {/* 3. Header & Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Navigation Bar */}
-        <nav className="flex items-center justify-between pb-8">
-          <Link href="/" className="flex items-center gap-2.5 font-bold text-xl tracking-tight text-white group">
-            <img
-              src="/assets/logo.png"
-              alt="ByteSpace"
-              className="w-7 h-7 sm:w-8 sm:h-8 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
-            />
-            <span className="font-semibold text-lg text-white">ByteSpace</span>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8 text-sm text-white/90 font-medium">
-            <Link href="/" className="hover:text-white transition">Home</Link>
-            <Link href="/courses" className="hover:text-white transition">Courses</Link>
-            <Link href="/creators" className="hover:text-white transition">Creators</Link>
-          </div>
-
-          <div className="flex items-center gap-4 text-sm font-medium">
-            <Link href="/login" className="text-white hover:text-white/80 transition text-xs sm:text-sm">
-              Sign In
-            </Link>
-            <Link
-              href="/signup"
-              className="px-4 py-1.5 rounded-full border border-white/60 text-white hover:bg-white/10 transition text-xs sm:text-sm"
-            >
-              Join Us
-            </Link>
-            <button aria-label="Cart" className="p-1 text-white hover:opacity-80 transition">
-              <ShoppingBag className="w-5 h-5 stroke-[1.8]" />
-            </button>
-          </div>
-        </nav>
+        {/* Unified Navbar */}
+        <Navbar />
 
         {/* Hero Title & Subtitle */}
-        <div className="max-w-3xl mx-auto text-center pt-2">
+        <div className="max-w-3xl mx-auto text-center pt-8">
           <h1 className="text-4xl sm:text-5xl md:text-[56px] font-bold text-white tracking-tight leading-[1.12]">
             Get Access to Hundreds <br /> Courses Available
           </h1>
@@ -166,25 +135,27 @@ export default function Hero() {
         {/* Hero Bottom Visual (Large Dome + Centered Student + Flush Bottom) */}
         <div className="relative mt-8 sm:mt-12 w-full max-w-5xl mx-auto flex items-end justify-center">
           <div className="relative flex items-end justify-center">
-            
             {/* Expanded Semi-Circle Dome resting flush on the bottom edge */}
             <div className="w-[360px] h-[210px] sm:w-[560px] sm:h-[320px] md:w-[740px] md:h-[400px] bg-[#D3F832] rounded-t-full flex-shrink-0" />
 
-            {/* Student Image: Scaled up and shifted to compensate for laptop width */}
+            {/* Student Image */}
             <img
               src="/assets/lp-img-1.png"
               alt="ByteSpace Student"
               className="absolute bottom-0 left-1/2 -translate-x-[46%] z-10 w-[340px] sm:w-[500px] md:w-[620px] max-w-none object-contain drop-shadow-2xl pointer-events-none"
+              onError={(e) => {
+                e.currentTarget.src = "/assets/student-hero.png";
+              }}
             />
 
             {/* Badge 1: Top-Left (UI/UX Design) */}
-            <div className="absolute -left-2 sm:left-4 md:left-6 top-10 sm:top-18 md:top-24 z-20 bg-white rounded-2xl py-2.5 px-4 shadow-xl text-left border border-gray-100 hidden sm:block">
+            <div className="absolute -left-2 sm:left-4 md:left-6 top-10 sm:top-16 md:top-24 z-20 bg-white rounded-2xl py-2.5 px-4 shadow-xl text-left border border-gray-100 hidden sm:block">
               <p className="font-bold text-xs text-gray-900">UI/UX Design</p>
               <p className="text-[10px] text-gray-400 font-medium mt-0.5">200 Courses • 1000+ Students</p>
             </div>
 
             {/* Badge 2: Top-Right (Learning Progress) */}
-            <div className="absolute -right-2 sm:right-6 md:right-8 top-14 sm:top-22 md:top-28 z-20 bg-white rounded-2xl py-3 px-5 shadow-xl text-left border border-gray-100 min-w-[150px] sm:min-w-[170px]">
+            <div className="absolute -right-2 sm:right-6 md:right-8 top-14 sm:top-20 md:top-28 z-20 bg-white rounded-2xl py-3 px-5 shadow-xl text-left border border-gray-100 min-w-[150px] sm:min-w-[170px]">
               <p className="text-[11px] text-gray-400 font-medium">Learning Progress</p>
               <p className="font-black text-2xl text-gray-900 mt-0.5">55%</p>
               <div className="w-full bg-gray-100 h-2 rounded-full mt-2.5 overflow-hidden">
@@ -204,9 +175,9 @@ export default function Hero() {
                 src="/assets/happy-students-avatars.png"
                 alt="Happy Students"
                 className="h-6 w-auto object-contain mt-0.5"
+                onError={(e) => (e.currentTarget.style.display = "none")}
               />
             </div>
-
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+"use client";
+
 const paths = [
   {
     name: "Design",
@@ -18,6 +20,7 @@ const paths = [
   {
     name: "Marketing",
     image: "/assets/paths/marketting.png",
+    altImage: "/assets/paths/marketing.png",
   },
   {
     name: "Photography",
@@ -50,6 +53,11 @@ export default function LearningPaths() {
                   src={path.image}
                   alt={path.name}
                   className="w-full h-full object-contain"
+                  onError={(e) => {
+                    if (path.altImage) {
+                      e.currentTarget.src = path.altImage;
+                    }
+                  }}
                 />
               </div>
 

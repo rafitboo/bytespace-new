@@ -10,7 +10,7 @@ import {
   Star,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/layout/Footer";
 
 const creatorCourses = [
   {

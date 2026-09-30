@@ -15,7 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/layout/Footer";
 
 const categories = [
   "Featured",
