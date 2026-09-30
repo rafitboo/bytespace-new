@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, FormEvent } from "react";
@@ -257,12 +257,12 @@ export default function LoginPage() {
               <button
                 type="button"
                 aria-label="Log in with Facebook"
-                className="w-14 h-14 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
+                className="w-14 h-14 rounded-3xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
               >
                 <img
                   src="/assets/facebook.png"
                   alt="Facebook"
-                  className="w-6 h-6 object-contain"
+                  className="w-14 h-14 object-contain"
                 />
               </button>
 
@@ -270,12 +270,12 @@ export default function LoginPage() {
               <button
                 type="button"
                 aria-label="Log in with Google"
-                className="w-14 h-14 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
+                className="w-14 h-14 rounded-3xl border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition"
               >
                 <img
                   src="/assets/google.png"
                   alt="Google"
-                  className="w-6 h-6 object-contain"
+                  className="w-14 h-14 object-contain"
                 />
               </button>
             </div>

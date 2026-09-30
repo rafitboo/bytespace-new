@@ -191,7 +191,7 @@ export default function CoursesPage() {
               const cardContent = (
                 <>
                   {/* Course Image */}
-                  <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100">
+                  <div className="relative rounded-2xl overflow-hidden aspect-16/10 bg-gray-100">
                     <img
                       src={course.image}
                       alt={course.title}
