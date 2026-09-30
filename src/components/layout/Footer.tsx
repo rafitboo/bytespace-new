@@ -40,7 +40,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-100 pt-16 pb-12">
+    <footer className="bg-white border-t-2 border-gray-200 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Grid: Newsletter Left / 3 Link Columns Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 items-start">
@@ -65,7 +65,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-gray-500 text-xs sm:text-sm font-normal pt-1">
-              Stay Up to date with our latest features and releases by joining our newsletter.[cite: 1, 30]
+              Stay Up to date with our latest features and releases by joining our newsletter.
             </p>
 
             {/* Newsletter Input Form */}
@@ -96,7 +96,7 @@ export default function Footer() {
             )}
 
             <p className="text-[11px] text-gray-400 leading-relaxed font-normal pt-1">
-              By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.[cite: 1, 30]
+              By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
             </p>
           </div>
 
@@ -148,17 +148,17 @@ export default function Footer() {
 
         {/* Divider & Legal Strip */}
         <div className="border-t border-gray-200/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>@ 2023 ByteSpace. All rights reserved.[cite: 1, 30]</p>
+          <p>@ 2023 ByteSpace. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-gray-800 transition">
-              Privacy Policy[cite: 1, 30]
+              Privacy Policy
             </Link>
             <Link href="#" className="hover:text-gray-800 transition">
-              Terms of Service[cite: 1, 30]
+              Terms of Service
             </Link>
             <Link href="#" className="hover:text-gray-800 transition">
-              Cookies Settings[cite: 1, 30]
+              Cookies Settings
             </Link>
           </div>
         </div>
